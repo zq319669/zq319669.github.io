@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+    <script type="text/javascript">
+
+		// 取得網址裡的參數 
+		function GetUrlVar(VarName) 
+		{
+		imgs = ["http://1.bp.blogspot.com/-xdHGOG59LCI/UjawN7V-deI/AAAAAAAABb8/v3dHRriJkjo/s1600/EUCL%E4%B8%8A%E5%8F%B0%E9%A0%98%E7%8D%8E01.jpg",
+              "http://4.bp.blogspot.com/-UKB9Pburh8I/Ujawb7t3wGI/AAAAAAAABcE/2h3OMM1sb-0/s1600/Frocius+Android%E4%B8%8A%E5%8F%B0%E9%A0%98%E7%8D%8E01.jpg",
+              "https://static.jsbin.com/images/dave.min.svg"];
+      
+		
+		  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		  var regexS = "[\\?&]" + VarName + "=([^&#]*)";
+		  var regex = new RegExp(regexS);
+		  var results = regex.exec(window.location.href);
+		  if (results == null)
+		   	 return "";
+		  else
+			 return results[1];
+		}
+
+		  
+		  // 要先取得網址裡的路徑起點終點經緯度參數 
+		  var X = decodeURIComponent(GetUrlVar('id'));
+		  var i = Number(X);
+		  if(i>-1&&i<3)
+			 document.getElementById("demo").innerHTML = '<img src="' + imgs[i] + '" width=100%>';
+		
+    </script>
+</head> 
+
+<body> 
+
+
+<div id = "demo">
+</div>
+
+<div id = "intro">
+</div>
+
+<script type="text/javascript">
+
+		// 取得網址裡的參數 
+		function GetUrlVar(VarName) 
+		{
+		imgs = ["http://1.bp.blogspot.com/-xdHGOG59LCI/UjawN7V-deI/AAAAAAAABb8/v3dHRriJkjo/s1600/EUCL%E4%B8%8A%E5%8F%B0%E9%A0%98%E7%8D%8E01.jpg",
+              "http://4.bp.blogspot.com/-UKB9Pburh8I/Ujawb7t3wGI/AAAAAAAABcE/2h3OMM1sb-0/s1600/Frocius+Android%E4%B8%8A%E5%8F%B0%E9%A0%98%E7%8D%8E01.jpg",
+              "https://static.jsbin.com/images/dave.min.svg"];
+		txt = [,,]
+ 		
+			name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+			var regexS = "[\\?&]" + VarName + "=([^&#]*)";
+			var regex = new RegExp(regexS);
+			var results = regex.exec(window.location.href);
+			if (results == null)
+				return "";
+			else
+				return results[1];
+		}
+
+		  
+		// 要先取得網址裡的路徑起點終點經緯度參數 
+		var X = decodeURIComponent(GetUrlVar('id'));
+		var i = Number(X);
+		if(i>-1&&i<3)
+		{
+			document.getElementById("demo").innerHTML = '<img src="' + imgs[i] + '" width=100%>';
+			document.getElementById("intro").innerHTML = '<p>' + txt[i] + '</p>';
+		}
+			 
+		
+    </script>
+
+
+
+
+
+</body>
+
+</html>
