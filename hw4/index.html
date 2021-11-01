@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+  </head>
+  <body class="orange lighten-4">
+    <nav>
+      <div class="nav-wrapper brown">
+        <a href="#" class="brand-logo ">首頁</a>
+        </ul>
+      </div>
+    </nav>
+    <div class="row" id="demo">
+      <!-- 用下面的script把卡片塞進來 -->
+    </div>
+    
+    
+    
+    
+    
+    <script>
+      imgs=["https://picdn.gomaji.com/products/1621440000/m/233/283233/283233_1_13.jpg",
+            "https://picdn.gomaji.com/uploads/buy123_dd/814/4305814_1634794850.jpg",
+            "https://picdn.gomaji.com/products/1621440000/m/125/283125/283125_1_2.jpg",
+            "https://picdn.gomaji.com/uploads/buy123_dd/409/4306409_1634794850.jpg",
+            "https://picdn.gomaji.com/products/1621440000/m/863/281863/281863_1_1.jpg",
+            "https://picdn.gomaji.com/products/1621440000/m/537/282537/282537_1_4.jpg"];
+      intro=["胖老爹美式炸雞","花磚陶瓷隔熱墊","茶+擇","NINESTARS感應垃圾桶","《預購》花蓮公正街包子","【大成】岩島成紐西蘭奶油餐包"];
+	  link=["https://www.gomaji.com/store/124489/pid/283233",
+            "https://buy123.gomaji.com/site/sku/2103155/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%8A%B1%E7%A3%9A%E9%99%B6%E7%93%B7%E9%9A%94%E7%86%B1%E5%A2%8A",
+            "https://www.gomaji.com/store/176426/pid/283125",
+            "https://buy123.gomaji.com/site/sku/2054938/NINESTARS%E6%84%9F%E6%87%89%E5%9E%83%E5%9C%BE%E6%A1%B6",
+            "https://www.gomaji.com/store/172407/pid/281863",
+            "https://www.gomaji.com/store/22356/pid/282537"];
+      text="";
+      for( i=0 ; i<imgs.length;i++)
+      {
+        text += '<div class="col s12 m4 l2">';
+        text += '  <div class="card ">';
+        text += '    <div class="card-image">';
+        text += '      <img src="' + imgs[i] + '" width="100%">';
+        text += '      <span class="card-title"></span>';
+        text += '    </div>';
+        text += '    <div class="card-content orange lighten-5">';
+        text += '      <p class="brown-text">' + intro[i] + '</p>';
+        text += '    </div>';
+        text += '    <div class="card-action brown lighten-1 ">';
+        text += '      <a class="white-text" href="hw4_B.html?id=' + i + '" target = _blank>立即搶購</a>';
+        text += '    </div>';
+        text += '  </div>';
+        text += '</div>';
+
+        document.getElementById("demo").innerHTML=text;
+      }
+    </script>
+    
+
+    
+    
+    
+    
+
+    
+    <footer class="page-footer brown">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/NCHU.tw/" target="_blank">FB</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2014 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
+    
+    
+    
+  </body>
+  
+</html>
