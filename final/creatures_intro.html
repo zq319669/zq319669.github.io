@@ -39,6 +39,20 @@
 				
 				
 					<script>
+					//取得網址裡的參數
+					function GetUrlVar(VarName) 
+					{
+						name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+						var regexS = "[\\?&]" + VarName + "=([^&#]*)";
+						var regex = new RegExp(regexS);
+						var results = regex.exec(window.location.href);
+						if (results == null)
+							return "";
+						else
+							return results[1];
+					}
+					
+					
 					// 要先取得網址裡的路徑起點終點經緯度參數 
 					var X = decodeURIComponent(GetUrlVar('id'));
 					var id_in = Number(X);
