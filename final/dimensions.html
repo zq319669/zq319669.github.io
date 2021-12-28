@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+	<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<!--Link personal css-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+    
+	<script src="js/script.js"></script>
+	</head>
+	<body >
+	
+		<script>print_header();</script>
+		
+		
+		
+		<div class="container" id="warp">
+			<div style="position:relative;">
+
+				<img class="title_img" src="image/index/ct2.png">
+				<h1 class="title">世界維度</h1>
+				
+				
+				<!--subtitle_1 -->
+				<div class="subtitle_background" style='background-image:url("image/dimensions/bg1.png")' id="sub1">
+					
+					<h2 class="subtitle" >主世界</h2>
+					<div class="sub_content_inactive" >
+					
+					
+						<h2 class="sub_content_header">主世界</h2>
+						<p class="sub_content_text">
+							主世界是在玩家剛進入遊戲時的第一個維度，具有許多特殊的生態系，平原、高山、叢林、沙漠...以及更多，超過五十種的生態系及其各自獨有的生物、
+							建築等著你去探索。主世界同時也是最宜居的維度，豐富的資源讓建築及生存變得更加輕鬆，晝夜交替增添了生活的樂趣，但要小心，在黑夜之中，有一群生物正對你虎視眈眈...
+						</p>
+						
+						
+						<img src="image/dimensions/mine.png" class="sub_content_img"></img><br>
+						<p class="sub_content_img_discription">▲ 一個生成於主世界地底的廢棄礦坑</p>
+					</div>
+				</div>
+				
+				<!--subtitle_2 -->
+				<div class="subtitle_background" style='background-image:url("image/dimensions/bg2.png")' id="sub2">
+					
+					<h2 class="subtitle">地獄</h2>
+					<div class="sub_content_inactive" >
+					
+					
+						<h2 class="sub_content_header">地獄</h2>
+						<p class="sub_content_text">
+							一個危險的地方，遍地的殭屍豬人、空中吐火的地獄幽靈，以及比主世界的水還多的岩漿!
+							在這暗無天日的地方，水一放下就會立即蒸發，嘗試使用床睡覺甚至會引起大爆炸!
+							如此危險的地方，同時隱藏著巨大的財富，堡壘中的寶藏、要塞中的黃金。
+							然而，若不多加謹慎，你便會為自己的貪婪付出代價。
+						</p>
+						
+						
+						<img src="image/dimensions/fortress.png" class="sub_content_img"></img><br>
+						<p class="sub_content_img_discription">▲ 一個生成於地獄的要塞</p>
+					</div>
+				</div>
+				
+				
+				<!--subtitle_3 -->
+				<div class="subtitle_background" style='background-image:url("image/dimensions/bg3.png")' id="sub3">
+					
+					<h2 class="subtitle">終界</h2>
+					<div class="sub_content_inactive" >
+					
+					
+						<h2 class="sub_content_header">終界</h2>
+						<p class="sub_content_text">
+							終界，如名所示，是終末之地，征途的終點。這裡也是終界使者的家，而在空中盤旋著Minecraft的最終BOSS---終界龍!
+							謹慎的面對它，否則這將是你生命的終點。在進入終界後，要想回家只有兩個途徑，戰勝終界龍或選擇死亡，確保自己做好了萬全的準備。
+						</p>
+
+						<img src="image/dimensions/enderdragon.png" class="sub_content_img"></img><br>
+						<p class="sub_content_img_discription">▲ 在空中盤旋的終界龍</p>
+						
+						<h2 class="sub_content_header">結束了?</h2>
+						<p class="sub_content_text">
+							在擊敗終界龍後，我們得以透過往島嶼周圍生成的終界折躍門中央投擲終界珍珠前往周邊的小島，偶爾，我們可以發現終末之民居住的城市---終界城
+							，這裡有著許多的高價值戰利品，同時也極為危險，除了一失足便跌入虛空的風險外，還有著會發動追蹤攻擊的界伏蚌，
+							小心地探索才有機會安全的帶走這些財寶。
+						</p>
+
+						<img src="image/dimensions/endercity.png" class="sub_content_img"></img><br>
+						<p class="sub_content_img_discription">▲ 一個生成於終界的終界城市</p>
+						
+					</div>
+				</div>
+				
+				
+				
+			</div>
+		</div>
+		
+		
+			
+		<script>
+		var arr=[];
+		for(let i=1;i<4;i++)
+		{
+			arr.push(document.getElementById("sub"+String(i)));
+			arr[i-1].addEventListener("click",function(){sub_content_control(arr[i-1])});;
+		}
+		</script>
+	
+	</body>
+	 
+	 
+	 
+	<footer class="page-footer black" id="footer">
+		<script> print_footer();</script>
+	</footer>
+	
+    
+  
+</html>
+		
+		
+		
+		
