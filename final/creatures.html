@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+	<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<!--Link personal css-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+    
+	<script src="js/script.js"></script>
+	<!--Google Chart-->
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	
+	<title>Minecraft intro|生物群集</title>
+	</head>
+	<body >
+		<!--loading_animate-->
+		<div class="loading_anime_container_on" id="anime">
+			<div >
+				<img src="image/bee.gif" />
+				<p class="loading_anime_text">Loading<span class="load_anime_0">.</span><span class="load_anime_1">.</span><span class="load_anime_2">.</span></p>
+			</div>
+		</div>
+	
+	
+		<script>print_header();</script>
+		
+		
+		
+		<div class="container warp_off" id="warp">
+			<div style="position:relative;">
+			
+
+				<img class="title_img" src="image/index/ct3.png">
+				<h1 class="title">生物群集</h1>
+				
+				
+				<!--subtitle_1 -->
+				<div class="subtitle_background" style='background-image:url("image/creatures/bg1.png")' id="sub1">
+					
+					<h2 class="subtitle">友好生物</h2>
+					<div class="sub_content_inactive" >
+					
+						<h2 class="sub_content_header">友好生物</h2>
+						<p class="sub_content_text">
+							Minecraft中有著形形色色的生物，他們都有各自的習性、喜好，友好生物對我們抱持善意，然而若不小心觸怒它們有時會造成無法挽回的結果。								
+						</p>
+						<div class="row" id="card_container_1">
+						</div>
+						
+						<p class="sub_content_text">除了這些常見的生物以外，遊戲中還有更多特殊的生物等你發掘!</p>
+					</div>
+				</div>
+				
+				<!--subtitle_2 -->
+				<div class="subtitle_background" style='background-image:url("image/creatures/bg2.png")' id="sub2">
+					
+					<h2 class="subtitle">敵對生物</h2>
+					<div class="sub_content_inactive" >
+					
+						<h2 class="sub_content_header">敵對生物</h2>
+						<p class="sub_content_text">
+							Minecraft中有著形形色色的生物，他們都有各自的習性、喜好，敵對生物對我們抱持敵意，他們通常主動攻擊我們並只在黑暗中出現，保持環境明亮並隨時警戒是個好選擇。								
+						</p>
+						<div class="row" id="card_container_2">
+						</div>
+						
+						<p class="sub_content_text">除了這些常見的敵人以外，遊戲中還有更多危險的敵人，保持警覺!</p>
+					</div>
+				</div>		
+	
+						<script>
+						// Load the Visualization API and the corechart package.
+						google.charts.load('current', {'packages':['corechart']});
+
+						// Set a callback to run when the Google Visualization API is loaded.	
+						google.charts.setOnLoadCallback(init);
+
+						function init() {
+						  // 這個例子使用的試算表是 https://docs.google.com/spreadsheets/d/1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk/copy
+						  // 將上述試算表另存副本後，你要在自己的雲端硬碟將該試算表設定成[知道連結的使用者都能查看]。
+						  // 然後讓程式讀取 https://docs.google.com/spreadsheets/d/瀏覽器網址列上的網址擷取序號部分/gviz/tq?sheet=工作表名稱
+						  // 也就是將下列的 1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk 更換成自己的檔案序號，以及最後部分指讀取哪個工作表。
+						  var url =
+							'https://docs.google.com/spreadsheets/d/1LUTkWOHNV-qkrQpxLc968ngsyvzulfVlwG5xtjyjTEQ/gviz/tq?sheet=creatures';
+						  var query = new google.visualization.Query(url);
+						  query.setQuery('select *');
+						  query.send(processSheetsData);
+						}	
+						
+						function processSheetsData(response) {
+						  var data = response.getDataTable();
+						  var columns = data.getNumberOfColumns();
+						  var rows = data.getNumberOfRows();
+						  var str = "";
+						  var str_1 = "";
+						  var str_2 = "";
+						  for (var r=0 ; r<rows ; r++) 
+						  {
+							str +='		<div class="col l3 m4 s12">';
+							str +='			<a href="creatures_intro.html?id='+String(r)+'" target="_blank">';
+							str +='				<div class="card_item">';
+							str +='					<img class="card_img" src="image/creatures/'+data.getFormattedValue(r,2)+'Face.png"></img>';
+							str +='					<p class="card_text">'+data.getFormattedValue(r,0)+'</p>';
+							str +='				</div>';
+							str +='			</a>';
+							str +='		</div>';
+						  
+							if(data.getFormattedValue(r,1)=='good' )
+							{
+								str_1+=str;
+							}
+							else if(data.getFormattedValue(r,1)=='bad')
+							{
+								str_2+=str
+							}
+							str="";
+							
+						  }
+						  document.getElementById("card_container_1").innerHTML = str_1;
+						  document.getElementById("card_container_2").innerHTML = str_2;
+						}
+						
+						</script>	
+						
+						
+						
+
+
+						
+							
+				
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+		
+		
+		
+		
+			
+		<script>
+		var arr=[];
+		for(let i=1;i<3;i++)
+		{
+			arr.push(document.getElementById("sub"+String(i)));
+			arr[i-1].addEventListener("click",function(){sub_content_control(arr[i-1])});;
+		}
+		</script>
+	 
+	</body>
+	 
+	 
+	 
+	<footer class="page-footer black" id="footer">
+		<script> print_footer();</script>
+	</footer>
+	 
+  
+   
+  
+</html>

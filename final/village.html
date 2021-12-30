@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+	<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<!--Link personal css-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+    
+	<script src="js/script.js"></script>
+	<!--Google Chart-->
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	<title>Minecraft intro|村莊</title>
+	
+	</head>
+	<body >
+	
+		<!--loading_animate-->
+		<div class="loading_anime_container_on" id="anime">
+			<div >
+				<img src="image/bee.gif" />
+				<p class="loading_anime_text">Loading<span class="load_anime_0">.</span><span class="load_anime_1">.</span><span class="load_anime_2">.</span></p>
+			</div>
+		</div>
+		<script>print_header();</script>
+		
+		
+		
+		<div class="container warp_off" id="warp">
+			<div style="position:relative;">
+			
+
+				<img class="title_img" src="image/index/ct4.png">
+				<h1 class="title">村莊</h1>
+				
+				
+				<!--subtitle_1 -->
+				<div class="subtitle_background" style='background-image:url("image/village/bg1.png")' id="sub1">
+					
+					<h2 class="subtitle" >村民</h2>
+					<div class="sub_content_inactive" >
+					
+					
+						<h2 class="sub_content_header">村民</h2>
+						<p class="sub_content_text">
+						在各種生態系中存在著因應當地環境而生的村莊，而村莊內居住著各種職業的居民，農夫、鐵匠、煉金術師...
+						，和村民交易是很棒的資源獲取途徑，我們可以使用綠寶石跟他們進行交易，根據村民的職業會決定交易品項的不同，
+						當我們與村民的交易熱絡了起來後，他們也會提供更多的選擇，努力跟村民打好關係吧!
+						
+						</p>
+						
+						
+						<img src="image/village/trade.png" class="sub_content_img"></img><br>
+						<p class="sub_content_img_discription">▲與村民的交易介面</p>
+					</div>
+				</div>
+				
+				<!--subtitle_2 -->
+				<div class="subtitle_background" style='background-image:url("image/village/bg2.png")' id="sub2">
+					
+					<h2 class="subtitle" >掠奪者</h2>
+					<div class="sub_content_inactive" >
+					
+					
+						<h2 class="sub_content_header">掠奪者</h2>
+						<p class="sub_content_text">
+						總有這麼一群人，試圖掠奪他人的財富，掠奪者便是為此而生。平時在路上偶爾會遇到遊蕩的掠奪者小隊，通常他們手上都拿著十字弩，
+						其中背著旗子的人是隊長，若擊殺他將獲得不祥之兆效果，若在持有不祥之兆的情況下進入村莊，則掠奪者們便會舉兵入侵村莊，
+						成群結隊的掠奪者們十分強大，建議做好準備在迎戰他們。
+						</p>
+						
+						<h2 class="sub_content_header">綠林府邸</h2>
+						<p class="sub_content_text">
+						如果你在茂密的綠林之中，發現一棟十分突兀的大房子，在進入前請務必做好準備。這裡是掠奪者的大本營---綠林府邸，在大到不像話的房子中
+						，居住著非常大量的掠奪者，伴隨著他們的是他們劫掠來的財富，很明顯的，他們並不打算輕易交出來。
+						</p>
+						
+						
+						
+						<img src="image/village/mansion.png" class="sub_content_img"></img><br>
+						<p class="sub_content_img_discription">▲聳立於林中的林地府邸</p>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+			</div>
+		</div>
+		
+		
+		
+		
+			
+		<script>
+		var arr=[];
+		for(let i=1;i<3;i++)
+		{
+			arr.push(document.getElementById("sub"+String(i)));
+			arr[i-1].addEventListener("click",function(){sub_content_control(arr[i-1])});;
+		}
+		</script>
+	 
+	</body>
+	 
+	 
+	 
+	<footer class="page-footer black" id="footer">
+		<script> print_footer();</script>
+	</footer>
+	 
+  
+   
+  
+</html>
