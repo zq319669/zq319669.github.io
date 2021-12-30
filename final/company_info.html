@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+	<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<!--Link personal css-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+	<script src="js/script.js"></script>
+	
+
+	
+	</head>
+	<body >
+	
+		<script>print_header();</script>
+		
+		
+		
+		<div class="container" id="warp">
+			<div style="position:relative;">
+				
+				<!--subtitle_1 -->
+				<div class="sub_content_active" >
+				
+					<h2 class="sub_content_header">公司簡介</h2>
+					<p class="sub_content_text">
+						Mojang Studios是一家瑞典電子遊戲開發商，總部設在斯德哥爾摩。該工作室由馬庫斯·佩爾松（英語：Markus Persson，Notch）於2009年建立，當時名為Mojang Specifications， 
+						繼承了他兩年前離開的一家同名企業Mojang Specifications AB的公司，Mojang於2009年開始開發沙盒遊戲當個創世神，這款遊戲後來成為最暢銷的電子遊戲，
+						並建立了一個成功的多媒體特許經營。後於2010年更名為Mojang。帶著離開《當個創世神》的願望，在2014年9月15日，微軟旗下的Xbox遊戲工作室（
+						當時被稱為微軟工作室）以25億美元的價格收購Mojang，創辦人之一Notch（馬庫斯·佩爾松）及部分職員因此事已離開Mojang，之後該工作室將
+						《當個創世神：故事模式》授權給了Telltale Games，並開發了《當個創世神 地球》和《當個創世神 地下城》。
+						除了《當個創世神》系列遊戲外，Mojang還開發了2014年的電子卡遊戲《捲軸》和2016年的回合制遊戲王冠和議會以及Humble Bundle 
+						遊戲果醬中的各種遊戲。目前此公司正在開發《捲軸》，同時也繼續更新《當個創世神》。在2020年5月，團隊重組並改名為 Mojang Studios。								
+					<br>簡介轉自<a href="https://zh.wikipedia.org/wiki/Mojang_Studios">維基百科</a>
+					</p>
+					<h2 class="sub_content_header">公司位址</h2>
+					<script>
+					// Load the Visualization API and the corechart package.
+					google.charts.load('current', {'packages':['corechart']});
+
+					// Set a callback to run when the Google Visualization API is loaded.	
+					google.charts.setOnLoadCallback(init);
+
+					function init() {
+					  // 這個例子使用的試算表是 https://docs.google.com/spreadsheets/d/1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk/copy
+					  // 將上述試算表另存副本後，你要在自己的雲端硬碟將該試算表設定成[知道連結的使用者都能查看]。
+					  // 然後讓程式讀取 https://docs.google.com/spreadsheets/d/瀏覽器網址列上的網址擷取序號部分/gviz/tq?sheet=工作表名稱
+					  // 也就是將下列的 1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk 更換成自己的檔案序號，以及最後部分指讀取哪個工作表。
+					  var url =
+						'https://docs.google.com/spreadsheets/d/1LUTkWOHNV-qkrQpxLc968ngsyvzulfVlwG5xtjyjTEQ/gviz/tq?sheet=creatures';
+					  var query = new google.visualization.Query(url);
+					  query.setQuery('select *');
+					  query.send(processSheetsData);
+					}	
+					
+					function processSheetsData(response) {
+					  var data = response.getDataTable();
+					  var columns = data.getNumberOfColumns();
+					  var rows = data.getNumberOfRows();
+					  var str = "";
+					  for(i=0;i<rows-1;i++ )
+					  {
+						str+='<iframe src="https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q='+data.getFormattedValue(i,1)+'&z='+data.getFormattedValue(i,2)+'&t='+data.getFormattedValue(i,3)+'&output=embed" style="margin:15px;"></iframe>'
+						str+='<p class="sub_content_img_discription">▲'+data.getFormattedValue(i,0)+'</p>
+					  }
+					  
+					  
+					}
+					</script>
+					
+					<iframe src="https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=59.326242,17.8419717&z=11&t=p&output=embed" style="margin:15px;">
+					</iframe>
+				
+				
+				</div>
+			</div>
+		</div>
+	</body>
+	 
+	 
+	 
+	<footer class="page-footer black" id="footer">
+		<script> print_footer();</script>
+	</footer>
+	 
+  
+   
+  
+</html>
