@@ -63,7 +63,7 @@ function print_footer()
     text+='    </div>';
     text+='    <div class="footer-copyright">';
 	text+='			<div class="container">';
-	text+='				© 2014 Copyright Text';
+	text+='				© 所有網頁內圖片及資料皆屬於Mojang Studios所有，本網頁只作為教育練習用途。';
 	text+='			</div>';
     text+='    </div>';
 
